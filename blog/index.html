@@ -19,9 +19,12 @@
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="/"><span class="brand-mark">Ō</span>欧奢五金·拉链</a>
+  <div class="lang"><span class="cur">中文</span>&nbsp;/&nbsp;<a href="https://osheaccessories.com/" target="_blank" rel="noopener">English</a></div>
+</div></div>
 <header class="nav">
   <div class="nav-in">
-    <a class="brand" href="/"><span class="brand-mark">Ō</span>欧奢五金·拉链</a>
     <nav class="nav-links">
 <a href="/">首页</a>
 <a href="/products/">产品</a>
@@ -30,7 +33,6 @@
 <a class="on" href="/blog/">博客</a>
 <a href="/contact/">联系我们</a>
     </nav>
-    <a class="nav-cta" href="/contact/">获取报价</a>
   </div>
 </header>
 <section class="page-hero"><div class="wrap"><h1>博客</h1><p>选材干货 · 行业知识 · 定制指南。</p></div></section>
@@ -38,7 +40,9 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">博客</span><h2>行业知识与选材干货</h2><p>五金怎么选、拉链怎么验、定制怎么避坑——每周更新。</p></div>
+    <div class="sec-head">
+      <span class="bar">行业知识与选材干货</span>
+      <span class="en">NEWS</span><p>五金怎么选、拉链怎么验、定制怎么避坑——每周更新。</p></div>
     <div class="grid grid-3">
       <div class="blog-item"><img class="blog-thumb" src="/images/cap-tumble.jpg" alt="振动研磨车间实拍"><div class="blog-body"><span class="date">即将上线</span><h3>箱包五金怎么选：铜的、钢的、锌合金的到底差在哪</h3><p>从重量、强度、成本三个维度对比常见材质，看完就会选。</p></div></div>
       <div class="blog-item"><img class="blog-thumb" src="/images/cap-polish.jpg" alt="打磨抛光工位实拍"><div class="blog-body"><span class="date">即将上线</span><h3>304 和 316 不锈钢差在哪？一张表看懂</h3><p>户外包、医卫包、海边用的包，材质选错就是客诉的开始。</p></div></div>
@@ -75,12 +79,14 @@
       <p>周一至周六 08:30–18:30</p>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="footer-bottom"><div class="fb-in">
     <span>© 2025 欧奢（东莞）五金有限公司 版权所有</span>
     <span><!-- ICP 备案通过后，把备案号放这里，例如：-->粤ICP备XXXXXXXX号（备案通过后替换）</span>
-  </div>
+  </div></div>
 </footer>
 
+<div class="consult"><a href="/contact/">在线咨询</a></div>
+<div class="backtop"><button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button></div>
 <div class="float">
   <div class="float-item">
     <button class="float-btn" type="button" data-panel="fTel" aria-label="电话微信">📱</button>
@@ -99,12 +105,6 @@
 </div>
 <script>
 (function(){
-  var nav=document.querySelector('.nav');
-  if(nav){
-    var navFn=function(){ nav.classList.toggle('scrolled',(window.scrollY||document.documentElement.scrollTop||0)>40); };
-    window.addEventListener('scroll',navFn,{passive:true});
-    navFn();
-  }
   var bar=document.querySelector('.float'); if(!bar) return;
   bar.addEventListener('click',function(e){
     var btn=e.target.closest('.float-btn');

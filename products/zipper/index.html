@@ -19,9 +19,12 @@
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="/"><span class="brand-mark">Ō</span>欧奢五金·拉链</a>
+  <div class="lang"><span class="cur">中文</span>&nbsp;/&nbsp;<a href="https://osheaccessories.com/" target="_blank" rel="noopener">English</a></div>
+</div></div>
 <header class="nav">
   <div class="nav-in">
-    <a class="brand" href="/"><span class="brand-mark">Ō</span>欧奢五金·拉链</a>
     <nav class="nav-links">
 <a href="/">首页</a>
 <a class="on" href="/products/">产品</a>
@@ -30,10 +33,9 @@
 <a href="/blog/">博客</a>
 <a href="/contact/">联系我们</a>
     </nav>
-    <a class="nav-cta" href="/contact/">获取报价</a>
   </div>
 </header>
-
+<section class="page-hero"><div class="wrap"><h1>不锈钢拉链</h1><p>316 不锈钢拉链：耐盐雾、耐腐蚀、顺滑不卡齿，#3/#5/#8 规格，开口闭口双头可选，100 条起订。</p></div></section>
 <main>
 
 <div class="wrap">
@@ -64,7 +66,9 @@
 </section>
 <section class="section section--soft">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">规格与参考价</span><h2>常见规格</h2><p>价格为 316 不锈钢、常规长度的示例起订价；长度按厘米计价，特殊规格按图报价。</p></div>
+    <div class="sec-head">
+      <span class="bar">常见规格</span>
+      <span class="en">SPEC & PRICE</span><p>价格为 316 不锈钢、常规长度的示例起订价；长度按厘米计价，特殊规格按图报价。</p></div>
     <table class="tbl">
       <tr><th>产品</th><th>规格</th><th>结构</th><th>示例价（100 条起）</th></tr>
       <tr><td>316 闭口拉链</td><td>#3 / #5</td><td>闭口尾，包袋口袋常用</td><td><b>¥3.0–6.0 / 条</b></td></tr>
@@ -79,7 +83,9 @@
   <div class="wrap">
     <div class="grid grid-2" style="align-items:start">
       <div>
-        <div class="sec-head" style="text-align:left;margin-bottom:18px"><span class="eyebrow">询价</span><h2>把需求发给我们</h2><p>写清规格、数量和用途，当天回复报价与打样方案。</p></div>
+        <div class="sec-head" style="text-align:left;margin-bottom:18px">
+      <span class="bar">把需求发给我们</span>
+      <span class="en">ENQUIRY</span><p>写清规格、数量和用途，当天回复报价与打样方案。</p></div>
         <ul style="font-size:14.5px;color:var(--ink-2);line-height:2.2">
           <li>📱 电话 / 微信：<b>180 0275 8559</b>（微信同号）</li>
           <li>✉ 邮箱：<b>sales@osheaccessories.com</b></li>
@@ -134,12 +140,14 @@
       <p>周一至周六 08:30–18:30</p>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="footer-bottom"><div class="fb-in">
     <span>© 2025 欧奢（东莞）五金有限公司 版权所有</span>
     <span><!-- ICP 备案通过后，把备案号放这里，例如：-->粤ICP备XXXXXXXX号（备案通过后替换）</span>
-  </div>
+  </div></div>
 </footer>
 
+<div class="consult"><a href="/contact/">在线咨询</a></div>
+<div class="backtop"><button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button></div>
 <div class="float">
   <div class="float-item">
     <button class="float-btn" type="button" data-panel="fTel" aria-label="电话微信">📱</button>
@@ -158,12 +166,6 @@
 </div>
 <script>
 (function(){
-  var nav=document.querySelector('.nav');
-  if(nav){
-    var navFn=function(){ nav.classList.toggle('scrolled',(window.scrollY||document.documentElement.scrollTop||0)>40); };
-    window.addEventListener('scroll',navFn,{passive:true});
-    navFn();
-  }
   var bar=document.querySelector('.float'); if(!bar) return;
   bar.addEventListener('click',function(e){
     var btn=e.target.closest('.float-btn');

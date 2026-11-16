@@ -19,9 +19,12 @@
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="/"><span class="brand-mark">Ō</span>欧奢五金·拉链</a>
+  <div class="lang"><span class="cur">中文</span>&nbsp;/&nbsp;<a href="https://osheaccessories.com/" target="_blank" rel="noopener">English</a></div>
+</div></div>
 <header class="nav">
   <div class="nav-in">
-    <a class="brand" href="/"><span class="brand-mark">Ō</span>欧奢五金·拉链</a>
     <nav class="nav-links">
 <a href="/">首页</a>
 <a href="/products/">产品</a>
@@ -30,7 +33,6 @@
 <a href="/blog/">博客</a>
 <a href="/contact/">联系我们</a>
     </nav>
-    <a class="nav-cta" href="/contact/">获取报价</a>
   </div>
 </header>
 <section class="page-hero"><div class="wrap"><h1>服务</h1><p>来图来样定制 · OEM/ODM · 打样 · 验货 · 售后，一站对接。</p></div></section>
@@ -38,7 +40,9 @@
 
 <section class="section">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">我们的服务</span><h2>不只是生产，更是帮您把事办成</h2><p>从一张图纸到一整批货，每个环节都有人对接。</p></div>
+    <div class="sec-head">
+      <span class="bar">不只是生产，更是帮您把事办成</span>
+      <span class="en">SERVICES</span><p>从一张图纸到一整批货，每个环节都有人对接。</p></div>
     <div class="grid grid-3">
       <div class="card"><span class="num">服务 01</span><h3>来图来样定制</h3><p>发 CAD 图、手绘图甚至一张照片都可以评估。工程师 48 小时内给出工艺建议、成本区间和打样时间。</p></div>
       <div class="card"><span class="num">服务 02</span><h3>快速打样</h3><p>有库存样 2–3 天寄出；定制样 15 天内完成并寄送。确认大货后样品费在货款中抵扣。</p></div>
@@ -51,7 +55,9 @@
 </section>
 <section class="section section--soft">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">合作流程</span><h2>订单是怎么跑起来的</h2></div>
+    <div class="sec-head">
+      <span class="bar">订单是怎么跑起来的</span>
+      <span class="en">PROCESS</span></div>
     <div class="steps">
       <div class="step"><span class="no">1</span><b>询价</b><p>当天回复报价</p></div>
       <div class="step"><span class="no">2</span><b>打样</b><p>2–15 天确认样品</p></div>
@@ -63,7 +69,9 @@
 </section>
 <section class="section">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">服务的行业</span><h2>服务于多元市场</h2><p>不同行业对五金的要求差别很大，我们按场景推荐材质与工艺。</p></div>
+    <div class="sec-head">
+      <span class="bar">服务于多元市场</span>
+      <span class="en">INDUSTRIES</span><p>不同行业对五金的要求差别很大，我们按场景推荐材质与工艺。</p></div>
     <div class="chips">
       <div class="chip">箱包手袋厂<small>女包 / 男包 / 旅行箱</small></div>
       <div class="chip">户外与军迷装备<small>登山包 / 战术包，推荐 316</small></div>
@@ -76,7 +84,9 @@
 </section>
 <section class="section section--soft">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">大货合作</span><h2>批量下单怎么合作</h2><p>专供批发商、贸易商、品牌方的大货条款，都写在明面上。</p></div>
+    <div class="sec-head">
+      <span class="bar">批量下单怎么合作</span>
+      <span class="en">B2B COOPERATION</span><p>专供批发商、贸易商、品牌方的大货条款，都写在明面上。</p></div>
     <div class="grid grid-2" style="margin-bottom:26px">
       <div class="card"><h3>对公结算，可开发票</h3><p>支持对公转账，可开增值税发票（专票 / 普票按您的需要）。合同、报价单、送货单齐全，财务对账不费劲。</p></div>
       <div class="card"><h3>欢迎实地验厂</h3><p>下单前可来东莞长安看车间、看设备、看现成货；也可委托第三方（SGS / BV 等）进厂验货。提前一天预约即可。</p></div>
@@ -121,12 +131,14 @@
       <p>周一至周六 08:30–18:30</p>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="footer-bottom"><div class="fb-in">
     <span>© 2025 欧奢（东莞）五金有限公司 版权所有</span>
     <span><!-- ICP 备案通过后，把备案号放这里，例如：-->粤ICP备XXXXXXXX号（备案通过后替换）</span>
-  </div>
+  </div></div>
 </footer>
 
+<div class="consult"><a href="/contact/">在线咨询</a></div>
+<div class="backtop"><button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button></div>
 <div class="float">
   <div class="float-item">
     <button class="float-btn" type="button" data-panel="fTel" aria-label="电话微信">📱</button>
@@ -145,12 +157,6 @@
 </div>
 <script>
 (function(){
-  var nav=document.querySelector('.nav');
-  if(nav){
-    var navFn=function(){ nav.classList.toggle('scrolled',(window.scrollY||document.documentElement.scrollTop||0)>40); };
-    window.addEventListener('scroll',navFn,{passive:true});
-    navFn();
-  }
   var bar=document.querySelector('.float'); if(!bar) return;
   bar.addEventListener('click',function(e){
     var btn=e.target.closest('.float-btn');
