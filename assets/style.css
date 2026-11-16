@@ -39,12 +39,12 @@ a{color:inherit;text-decoration:none;}
 .nav-links a.on{color:#fff;background:var(--blue);}
 
 /* ── 首页轮播：黑白工业摄影 + 大字 ────────── */
-.hero{position:relative;height:560px;overflow:hidden;background:#1a1a1c;}
+.hero{position:relative;height:calc(100svh - 49px);min-height:520px;overflow:hidden;background:#1a1a1c;}
 .slides{position:absolute;inset:0;}
 .slide{position:absolute;inset:0;background-position:center;background-size:cover;filter:grayscale(1) contrast(1.06);}
-.slide.s1{background-image:url(/images/hero-workshop.jpg);opacity:1;animation:slideA 15s ease infinite;}
-.slide.s2{background-image:url(/images/banner-assembly.jpg);animation:slideB 15s ease infinite;}
-.slide.s3{background-image:url(/images/cap-polish.jpg);animation:slideC 15s ease infinite;}
+.slide.s1{background-image:url(/images/zip-gold.jpg);opacity:1;animation:slideA 15s ease infinite;}
+.slide.s2{background-image:url(/images/zip-metal.jpg);animation:slideB 15s ease infinite;}
+.slide.s3{background-image:url(/images/zip-denim.jpg);animation:slideC 15s ease infinite;}
 @keyframes slideA{0%,28%,100%{opacity:1;}36%,60%{opacity:0;}70%,92%{opacity:0;}}
 @keyframes slideB{0%,28%{opacity:0;}36%,60%{opacity:1;}70%,92%{opacity:0;}}
 @keyframes slideC{0%,28%,60%{opacity:0;}70%,92%{opacity:1;}}
@@ -61,16 +61,8 @@ a{color:inherit;text-decoration:none;}
 .hero-dots span.on{background:var(--gold);}
 
 /* ── 品牌理念区：橙黄大圆 + 四词 ────────── */
-.values{background:#fff;padding:76px 0 70px;overflow:hidden;}
-.values-in{display:flex;align-items:center;gap:56px;}
-.v-circle{width:300px;height:300px;flex-shrink:0;border-radius:50%;background:radial-gradient(circle at 30% 28%,#ffc23e 0%,var(--gold) 58%,#d98f00 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#fff;box-shadow:0 18px 46px rgba(240,165,0,.32);}
-.v-mark{width:54px;height:54px;border:2px solid rgba(255,255,255,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;}
-.v-circle b{font-size:20px;letter-spacing:.1em;text-align:center;line-height:1.6;}
-.v-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px 44px;flex:1;}
-.v-item{display:flex;gap:16px;align-items:flex-start;}
-.v-item .dot{width:14px;height:14px;border-radius:50%;background:var(--gold);margin-top:9px;flex-shrink:0;box-shadow:0 0 0 5px rgba(240,165,0,.16);}
-.v-item b{display:block;font-size:17px;letter-spacing:.04em;}
-.v-item span{display:block;color:var(--muted);font-size:13.5px;margin-top:2px;}
+.values{background:#fff;overflow:hidden;}
+.values img{width:100%;height:auto;display:block;}
 
 /* ── 关键词条 ────────── */
 .keywords{background:var(--soft);border-top:1px solid var(--line);}
@@ -266,17 +258,12 @@ a{color:inherit;text-decoration:none;}
   .topbar .lang{font-size:12px;}
   .nav-links{overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .nav-links a{padding:12px 16px;font-size:13px;white-space:nowrap;}
-  .hero{height:440px;}
+  .hero{height:calc(100svh - 49px);min-height:440px;}
   .hero-in{align-items:flex-start;text-align:left;justify-content:flex-end;padding-bottom:56px;}
   .hero h1{font-size:25px;}
   .hero-cta{justify-content:flex-start;flex-wrap:wrap;}
   .hero-sub{font-size:13px;letter-spacing:.04em;padding-right:6px;}
   .hero-tag span{letter-spacing:.18em;padding:5px 14px;font-size:12px;}
-  .values{padding:54px 0;}
-  .values-in{flex-direction:column;gap:34px;}
-  .v-circle{width:230px;height:230px;}
-  .v-circle b{font-size:16px;}
-  .v-grid{gap:18px 20px;}
   .grid,.grid-2,.grid-3{grid-template-columns:1fr;}
   .cap-grid{grid-template-columns:1fr 1fr;}
   .cap-card{height:200px;}
