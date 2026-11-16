@@ -32,7 +32,20 @@ img{max-width:100%;display:block;}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
 
 /* ── 导航 ─────────────────────────────────── */
+/* ── 导航：内页白底 sticky；首页透明叠加首图，下滑变白底 ────────── */
 .nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--line);}
+.nav--home{position:fixed;left:0;right:0;background:transparent;border-bottom-color:transparent;transition:background .25s ease,box-shadow .25s ease,border-color .25s ease;}
+.nav--home .brand{color:#fff;}
+.nav--home .brand-mark{background:#fff;color:var(--ink);}
+.nav--home .nav-links a{color:rgba(255,255,255,.88);}
+.nav--home .nav-links a:hover{color:#fff;}
+.nav--home .nav-links a.on{color:#fff;border-bottom-color:var(--accent);}
+.nav--home.scrolled,.nav.scrolled{background:#fff;border-bottom-color:var(--line);box-shadow:0 1px 10px rgba(0,0,0,.07);}
+.nav--home.scrolled .brand,.nav.scrolled .brand{color:var(--ink);}
+.nav--home.scrolled .brand-mark,.nav.scrolled .brand-mark{background:var(--ink);color:#fff;}
+.nav--home.scrolled .nav-links a,.nav.scrolled .nav-links a{color:var(--ink-2);}
+.nav--home.scrolled .nav-links a:hover,.nav.scrolled .nav-links a:hover{color:var(--ink);}
+.nav--home.scrolled .nav-links a.on,.nav.scrolled .nav-links a.on{color:var(--ink);border-bottom-color:var(--accent);}
 .nav-in{max-width:1080px;margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;gap:34px;}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:.02em;}
 .brand-mark{width:30px;height:30px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;border-radius:3px;}
@@ -48,22 +61,24 @@ img{max-width:100%;display:block;}
 }
 
 /* ── Hero（深色工业大图风） ────────────────── */
+/* ── Hero（满屏工业大图，对标参考站） ────────── */
 .hero{
-  background:linear-gradient(115deg,var(--hero-1) 0%,var(--hero-2) 60%,#2a3038 100%);
-  color:#fff;padding:clamp(90px,16vw,170px) 0;
+  min-height:100svh;display:flex;align-items:center;
+  background:linear-gradient(180deg,rgba(14,17,20,.5) 0%,rgba(14,17,20,.78) 100%),
+             url(/images/cnc-machining.jpg) center 45%/cover no-repeat;
+  background-color:var(--hero-1);
+  color:#fff;padding:120px 0 90px;
   position:relative;overflow:hidden;
 }
-/* 照片占位：拿到真实车间照片后，把 .hero 背景换成
-   background:url(/images/hero.jpg) center/cover;  并保留一层深色遮罩保证文字可读 */
 .hero::after{content:"";position:absolute;inset:0;
   background:radial-gradient(ellipse at 80% 20%,rgba(217,83,30,.14),transparent 55%);}
 .hero .wrap{position:relative;z-index:1;}
-.hero h1{font-size:clamp(30px,5.4vw,52px);font-weight:700;line-height:1.28;letter-spacing:.01em;}
-.hero p{margin-top:16px;font-size:clamp(15px,2.2vw,18px);color:rgba(255,255,255,.78);max-width:560px;}
+.hero h1{font-size:clamp(38px,7vw,74px);font-weight:700;line-height:1.2;letter-spacing:.01em;text-shadow:0 2px 24px rgba(0,0,0,.35);}
+.hero p{margin-top:24px;font-size:clamp(16px,2.3vw,24px);color:rgba(255,255,255,.86);max-width:660px;text-shadow:0 1px 14px rgba(0,0,0,.35);}
 .hero-rule{margin-top:30px;height:1px;width:min(520px,80%);background:rgba(255,255,255,.28);position:relative;}
 .hero-rule::after{content:"";position:absolute;left:50%;top:-3px;width:7px;height:7px;background:var(--accent);border-radius:50%;}
-.hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
-.btn{display:inline-block;padding:11px 26px;font-size:15px;border-radius:3px;cursor:pointer;border:0;font-family:inherit;}
+.hero-cta{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-block;padding:13px 34px;font-size:16px;border-radius:3px;cursor:pointer;border:0;font-family:inherit;}
 .btn-accent{background:var(--accent);color:#fff;}
 .btn-accent:hover{background:var(--accent-hover);}
 .btn-ghost{border:1px solid rgba(255,255,255,.5);color:#fff;background:transparent;}
@@ -241,8 +256,22 @@ a.fp-num:hover{color:var(--accent);}
 .quote .who b{color:var(--ink);font-size:13.5px;}
 
 /* ── 实拍图升级：Hero / 横幅 / 博客缩略图 ────────── */
-.hero{background:linear-gradient(rgba(17,20,24,.76),rgba(17,20,24,.76)),url(/images/cnc-machining.jpg) center/cover;}
 .banner--photo{background:linear-gradient(rgba(17,20,24,.8),rgba(17,20,24,.82)),url(/images/banner-grinding.jpg) center/cover;}
 .blog-item{padding:0;}
 .blog-thumb{width:100%;height:150px;object-fit:cover;display:block;border-radius:4px 4px 0 0;}
 .blog-body{padding:20px 24px 24px;}
+
+/* ── Hero 移动端用轻量版大图，避免小屏加载 200KB ────────── */
+@media(max-width:760px){
+  .hero{background-image:linear-gradient(180deg,rgba(14,17,20,.76) 0%,rgba(14,17,20,.9) 100%),url(/images/cnc-machining-sm.jpg);}
+}
+
+/* ── 移动端满屏 hero 微调 ────────── */
+@media(max-width:760px){
+  .hero{padding:100px 0 72px;}
+  .hero h1{font-size:clamp(28px,8.4vw,36px);}
+  .hero p{font-size:15px;margin-top:16px;}
+  .hero-cta{margin-top:30px;}
+  .btn{padding:12px 26px;font-size:15px;}
+  .nav--home .nav-links a{white-space:nowrap;}
+}

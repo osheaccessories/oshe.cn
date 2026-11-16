@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<header class="nav">
+<header class="nav nav--home">
   <div class="nav-in">
     <a class="brand" href="/"><span class="brand-mark">Ō</span>欧奢五金</a>
     <nav class="nav-links">
@@ -208,6 +208,12 @@
 </div>
 <script>
 (function(){
+  var nav=document.querySelector('.nav');
+  if(nav){
+    var navFn=function(){ nav.classList.toggle('scrolled',(window.scrollY||document.documentElement.scrollTop||0)>40); };
+    window.addEventListener('scroll',navFn,{passive:true});
+    navFn();
+  }
   var bar=document.querySelector('.float'); if(!bar) return;
   bar.addEventListener('click',function(e){
     var btn=e.target.closest('.float-btn');
