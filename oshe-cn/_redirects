@@ -1,0 +1,2 @@
+# www 跳转到主域名（Cloudflare Pages 生效）
+https://www.oshee.cn/*  https://oshee.cn/:splat  301!
