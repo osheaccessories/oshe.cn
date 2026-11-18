@@ -180,6 +180,48 @@ a{color:inherit;text-decoration:none;}
 .banner p{margin-top:10px;color:rgba(255,255,255,.75);font-size:14px;}
 .banner .btn{margin-top:20px;}
 
+/* ── 样品展示 gallery ────────── */
+.gal-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;}
+.gal-bar button{padding:8px 20px;font-size:13.5px;letter-spacing:.04em;background:#fff;border:1px solid #d8d9dc;color:#555;cursor:pointer;transition:all .16s ease;font-family:inherit;}
+.gal-bar button em{font-style:normal;font-size:11.5px;color:#9a9b9e;margin-left:5px;}
+.gal-bar button:hover{border-color:var(--gold);color:var(--gold);}
+.gal-bar button.on{background:var(--dark);border-color:var(--dark);color:#fff;}
+.gal-bar button.on em{color:rgba(255,255,255,.55);}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.gal-item{position:relative;display:flex;flex-direction:column;padding:0;background:#fff;border:1px solid var(--line);cursor:zoom-in;font-family:inherit;transition:box-shadow .2s ease,transform .2s ease;}
+.gal-item:hover{box-shadow:0 14px 30px rgba(0,0,0,.12);transform:translateY(-2px);}
+.gal-img{display:block;aspect-ratio:1/1;background:#fff;overflow:hidden;}
+.gal-img img{width:100%;height:100%;object-fit:contain;padding:7%;}
+.gal-name{display:block;padding:12px 8px 2px;font-size:14px;letter-spacing:.05em;color:var(--ink);}
+.gal-n{display:block;padding:0 8px 13px;font-size:11.5px;color:var(--muted);letter-spacing:.04em;}
+.gal-note{font-size:12.5px;color:var(--muted);margin-top:16px;}
+
+/* ── 样品详情弹层 ────────── */
+.pmodal{position:fixed;inset:0;z-index:210;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(12,12,14,.9);}
+.pmodal.on{display:flex;}
+.pm-box{position:relative;display:flex;flex-direction:column;width:100%;max-width:780px;max-height:92vh;background:#fff;overflow:hidden;}
+.pm-close{position:absolute;top:8px;right:10px;z-index:3;width:36px;height:36px;border:0;background:rgba(255,255,255,.85);border-radius:50%;font-size:20px;line-height:1;color:#333;cursor:pointer;}
+.pm-close:hover{background:#fff;}
+.pm-head{display:flex;align-items:baseline;gap:12px;padding:16px 56px 12px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap;}
+.pm-head b{font-size:17px;letter-spacing:.05em;}
+.pm-head span{font-size:12px;color:var(--muted);}
+.pm-count{margin-left:auto;}
+.pm-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#f7f7f8;padding:12px;overflow:hidden;}
+.pm-stage img{max-width:min(700px,86vw);max-height:min(54vh,600px);width:auto;height:auto;object-fit:contain;}
+.pm-arrow{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:56px;border:0;background:rgba(255,255,255,.75);font-size:24px;color:#333;cursor:pointer;}
+.pm-arrow:hover{background:#fff;}
+.pm-prev{left:8px;}
+.pm-next{right:8px;}
+.pm-thumbs{display:flex;gap:8px;padding:12px 18px 14px;overflow-x:auto;border-top:1px solid var(--line);}
+.pm-thumbs button{flex:0 0 auto;width:60px;height:60px;padding:0;border:1px solid var(--line);background:#fff;cursor:pointer;opacity:.6;}
+.pm-thumbs button.on{border-color:var(--gold);opacity:1;}
+.pm-thumbs button.on img{padding:2px;}
+.pm-thumbs img{width:100%;height:100%;object-fit:cover;}
+.gal-promo{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);padding:24px 28px;margin-top:6px;}
+.gal-promo b{font-size:16px;letter-spacing:.03em;}
+.gal-promo p{font-size:13.5px;color:var(--muted);margin-top:6px;}
+
 /* ── 按钮 ────────── */
 .btn{display:inline-block;padding:12px 32px;font-size:14.5px;letter-spacing:.06em;border:1px solid transparent;transition:all .18s ease;}
 .btn-accent{background:var(--gold);color:#fff;}
@@ -282,4 +324,11 @@ a{color:inherit;text-decoration:none;}
   .section--soft{padding:52px 0;}
   .consult{display:none;}
   .tbl{display:block;overflow-x:auto;}
+  .gal-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .gal-bar button{padding:7px 14px;font-size:12.5px;}
+  .gal-promo{padding:20px 22px;}
+  .pm-box{max-height:96vh;}
+  .pm-stage{min-height:300px;}
+  .pm-stage img{max-height:56vh;max-width:86vw;}
+  .pm-thumbs img{width:52px;height:52px;}
 }
