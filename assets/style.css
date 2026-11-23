@@ -292,6 +292,22 @@ a{color:inherit;text-decoration:none;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.12);}
 .fb-in{max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;gap:12px;font-size:12.5px;color:rgba(255,255,255,.45);flex-wrap:wrap;}
 
+/* ── 3D 打样板块 ────────── */
+.proto{display:grid;gap:14px;}
+.proto figure{margin:0;position:relative;overflow:hidden;background:#ececee;}
+.proto figure img{width:100%;height:100%;object-fit:cover;display:block;}
+.proto-lead img{aspect-ratio:16/7;object-position:center 62%;}
+.proto figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 18px 12px;font-size:13px;letter-spacing:.04em;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.62));}
+.proto-row{display:grid;grid-template-columns:1fr 1fr 1.45fr;gap:14px;align-items:stretch;}
+.proto-row figure img{height:480px;}
+.proto-note{border:1px solid var(--line);border-top:3px solid var(--gold);background:#fff;padding:24px 26px;display:flex;flex-direction:column;justify-content:center;}
+.proto-note b{font-size:16.5px;letter-spacing:.04em;}
+.proto-note ul{list-style:none;margin-top:10px;}
+.proto-note li{font-size:13.5px;color:#55565a;line-height:1.6;padding:7px 0 7px 16px;position:relative;border-top:1px dashed var(--line);}
+.proto-note li:first-child{border-top:0;}
+.proto-note li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;background:var(--gold);border-radius:50%;}
+.proto-note li b{font-size:13.5px;color:var(--ink);font-weight:700;}
+
 /* ── 移动端 ────────── */
 @media(max-width:860px){
   .topbar .wrap{height:60px;}
@@ -331,4 +347,9 @@ a{color:inherit;text-decoration:none;}
   .pm-stage{min-height:300px;}
   .pm-stage img{max-height:56vh;max-width:86vw;}
   .pm-thumbs img{width:52px;height:52px;}
+  .proto-lead img{aspect-ratio:16/10;}
+  .proto-row{grid-template-columns:1fr;}
+  .proto-row figure img{height:auto;aspect-ratio:4/5;}
+  .proto figcaption{font-size:12px;padding:24px 14px 10px;}
+  .proto-note{padding:20px 18px;}
 }
