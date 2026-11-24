@@ -16,7 +16,7 @@
 <meta property="og:description" content="316 不锈钢拉链：耐盐雾、耐腐蚀、顺滑不卡齿，#3/#5/#8 规格，开口闭口双头可选，100 条起订。">
 <meta property="og:url" content="https://oshee.cn/products/zipper">
 <meta property="og:image" content="https://oshee.cn/og-image.jpg">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v=1795519007-23960">
 </head>
 <body>
 <div class="topbar"><div class="wrap">
@@ -167,6 +167,19 @@
 </div>
 <script>
 (function(){
+  var slides=document.querySelectorAll('.hero .slide'), dots=document.querySelectorAll('.hero-dots span');
+  if(slides.length && dots.length){
+    var cur=0, timer=null;
+    function show(i){
+      cur=i;
+      slides.forEach(function(s,j){ s.classList.toggle('on', j===i); });
+      dots.forEach(function(d,j){ d.classList.toggle('on', j===i); });
+    }
+    function next(){ show((cur+1) % slides.length); }
+    function arm(){ clearInterval(timer); timer=setInterval(next, 6000); }
+    dots.forEach(function(d,i){ d.addEventListener('click', function(){ show(i); arm(); }); });
+    arm();
+  }
   var bar=document.querySelector('.float'); if(!bar) return;
   bar.addEventListener('click',function(e){
     var btn=e.target.closest('.float-btn');

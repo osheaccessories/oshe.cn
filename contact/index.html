@@ -16,7 +16,7 @@
 <meta property="og:description" content="联系欧奢五金：电话/微信 180 0275 8559，邮箱 sales@osheaccessories.com，地址东莞市长安镇厦边社区大板地一路10号8幢，在线询价当天回复。">
 <meta property="og:url" content="https://oshee.cn/contact">
 <meta property="og:image" content="https://oshee.cn/og-image.jpg">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v=1795519007-23960">
 </head>
 <body>
 <div class="topbar"><div class="wrap">
@@ -152,6 +152,19 @@
 </div>
 <script>
 (function(){
+  var slides=document.querySelectorAll('.hero .slide'), dots=document.querySelectorAll('.hero-dots span');
+  if(slides.length && dots.length){
+    var cur=0, timer=null;
+    function show(i){
+      cur=i;
+      slides.forEach(function(s,j){ s.classList.toggle('on', j===i); });
+      dots.forEach(function(d,j){ d.classList.toggle('on', j===i); });
+    }
+    function next(){ show((cur+1) % slides.length); }
+    function arm(){ clearInterval(timer); timer=setInterval(next, 6000); }
+    dots.forEach(function(d,i){ d.addEventListener('click', function(){ show(i); arm(); }); });
+    arm();
+  }
   var bar=document.querySelector('.float'); if(!bar) return;
   bar.addEventListener('click',function(e){
     var btn=e.target.closest('.float-btn');
