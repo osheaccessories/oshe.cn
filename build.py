@@ -26,7 +26,7 @@ def _ver(p):
         return ""
 
 
-NAV = [("首页","/"),("产品","/products/"),("样品展示","/samples/"),("服务","/services/"),("关于","/about/"),("博客","/blog/"),("联系我们","/contact/")]
+NAV = [("首页","/"),("样品展示","/samples/"),("服务","/services/"),("关于","/about/"),("博客","/blog/"),("联系我们","/contact/")]
 
 def nav_html(cur):
     out = []
@@ -67,7 +67,7 @@ def page(fname, title, desc, body, cur, h1=None, sub=None, crumb=None, breadcrum
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <a class="brand" href="/"><span class="brand-mark">Ō</span>欧奢五金·拉链</a>
+  <a class="brand" href="/"><span class="brand-mark">{BRAND_SVG_DARK}</span>欧奢五金·拉链</a>
   <div class="lang"><span class="cur">中文</span>&nbsp;/&nbsp;<a href="https://osheaccessories.com/" target="_blank" rel="noopener">English</a></div>
 </div></div>
 <header class="nav">
@@ -84,23 +84,23 @@ def page(fname, title, desc, body, cur, h1=None, sub=None, crumb=None, breadcrum
 <footer class="footer">
   <div class="footer-in">
     <div>
-      <div class="brand"><span class="brand-mark">Ō</span>欧奢五金·拉链</div>
+      <div class="brand"><span class="brand-mark">{BRAND_SVG_LIGHT}</span>欧奢五金·拉链</div>
       <p>欧奢（东莞）五金有限公司<br>箱包五金 · 不锈钢拉链源头工厂</p>
       <p>广东省东莞市长安镇厦边社区<br>大板地一路10号8幢</p>
     </div>
     <div>
       <h4>快速导航</h4>
       <a href="/">首页</a>
-      <a href="/products/">产品</a>
       <a href="/samples/">样品展示</a>
       <a href="/services/">服务</a>
       <a href="/about/">关于我们</a>
     </div>
     <div>
-      <h4>产品中心</h4>
-      <a href="/products/brass-hardware/">铜箱包五金</a>
-      <a href="/products/stainless-hardware/">不锈钢箱包五金</a>
-      <a href="/products/zipper/">不锈钢拉链</a>
+      <h4>了解我们</h4>
+      <a href="/samples/">样品展示</a>
+      <a href="/services/">定制服务</a>
+      <a href="/blog/">博客</a>
+      <a href="/about/">关于我们</a>
     </div>
     <div>
       <h4>联系方式</h4>
@@ -200,65 +200,72 @@ FORM = f'''<div class="form-ok" id="formOk" hidden><span><b>询价已提交，�
   <p class="form-note">提交后 12 小时内回复；急单请直接打电话或加微信（180 0275 8559）。</p>
 </form>'''
 
+
+# 品牌 "Ō" 图形：圆环 + 人字帽（参照用户提供的图形，无背景方块）
+BRAND_SVG_DARK = ('<svg viewBox="0 0 100 82" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
+  '<path d="M6 34 L50 9 L94 34 L94 45 L50 21 L6 45 Z" fill="#1c1c1e"/>'
+  '<circle cx="50" cy="60" r="21" fill="none" stroke="#1c1c1e" stroke-width="13"/></svg>')
+BRAND_SVG_LIGHT = BRAND_SVG_DARK.replace('#1c1c1e', '#ffffff')
+
 def form(subj, redir):
     return FORM.replace("{SUBJ}", subj).replace("{REDIR}", SITE + redir)
 
 # ═══════════════════════ 首页 ═══════════════════════
 index_body = f'''
 <section class="hero">
-  <div class="slides"><div class="slide on" style="background-image:url({_img('zip-hero-1.jpg')})"></div><div class="slide" style="background-image:url({_img('zip-hero-2.jpg')})"></div><div class="slide" style="background-image:url({_img('zip-hero-3.jpg')})"></div><div class="slide" style="background-image:url({_img('zip-hero-4.jpg')})"></div><div class="shade"></div></div>
+  <div class="slides"><div class="slide on" style="background-image:url({_img('zip-hero-1.jpg')})"></div><div class="slide" style="background-image:url({_img('zip-pull.jpg')})"></div><div class="slide" style="background-image:url({_img('zip-hero-4.jpg')})"></div><div class="shade"></div></div>
   <div class="wrap hero-in">
     <div class="hero-tag"><span>OSHE HARDWARE</span></div>
     <h1>拉链与箱包五金<br><span class="em">一站式制造</span></h1>
     <p class="hero-sub">用心做好每一件五金 · 12 年源头工厂 · 支持按图来样定制</p>
     <div class="hero-cta">
-      <a class="btn btn-accent" href="/products/">查看产品</a>
+      <a class="btn btn-accent" href="/samples/">样品展示</a>
       <a class="btn btn-ghost" href="/contact/">联系我们</a>
     </div>
   </div>
-  <div class="hero-dots"><span class="on"></span><span></span><span></span><span></span></div>
+  <div class="hero-dots"><span class="on"></span><span></span><span></span></div>
 </section>
 
 <section class="values">
   <img src="/images/oshe-brand.jpg" alt="欧奢拉链品牌理念：用心做好每一条拉链 — 品质、诚信、专注、创新">
 </section>
 
-<div class="keywords"><div class="wrap"><b>热门关键词：</b><a href="/products/brass-hardware/">铜箱包五金</a>、<a href="/products/stainless-hardware/">不锈钢五金</a>、<a href="/products/zipper/">不锈钢拉链</a>、压铸锌合金、D 环 / 三角环 / 插扣、按图定制</div></div>
+<div class="keywords"><div class="wrap"><b>热门关键词：</b>铜箱包五金、不锈钢五金、不锈钢拉链、压铸锌合金、D 环 / 三角环 / 插扣、按图定制</div></div>
 
 <section class="section">
   <div class="wrap">
     <div class="sec-head">
       <span class="bar">三大产品线</span>
       <span class="en">PRODUCTS</span>
-      <p>铜五金、不锈钢五金、不锈钢拉链，均支持按图纸或样品定制。</p>
+      <p>铜五金、不锈钢五金、不锈钢拉链，均支持按图纸或样品定制。实物与工艺细节请看样品展示。</p>
     </div>
     <div class="grid grid-3">
-      <a class="pcard" href="/products/brass-hardware/">
+      <div class="pcard">
         <div class="pcard-media">产 品 图 片 占 位</div>
         <div class="pcard-body">
           <h3>铜箱包五金</h3>
           <p>铜质 D 环、三角环、八字扣、插扣、铆钉、脚钉等。材质 H62/H65 黄铜，表面滚光、电镀、仿古多种工艺。</p>
-          <div class="pcard-meta"><span>100 件起订</span><b>¥1.5 起</b></div>
+          <div class="pcard-meta"><span>100 件起订</span></div>
         </div>
-      </a>
-      <a class="pcard" href="/products/stainless-hardware/">
+      </div>
+      <div class="pcard">
         <div class="pcard-media">产 品 图 片 占 位</div>
         <div class="pcard-body">
           <h3>不锈钢箱包五金</h3>
           <p>304/316 不锈钢环扣、勾扣、调节扣、拉片。强度高、不生锈，适合户外包、工具包、医卫行业箱包。</p>
-          <div class="pcard-meta"><span>100 件起订</span><b>¥1.2 起</b></div>
+          <div class="pcard-meta"><span>100 件起订</span></div>
         </div>
-      </a>
-      <a class="pcard" href="/products/zipper/">
+      </div>
+      <div class="pcard">
         <div class="pcard-media">产 品 图 片 占 位</div>
         <div class="pcard-body">
           <h3>不锈钢拉链</h3>
           <p>316 不锈钢链牙拉链，耐盐雾、耐腐蚀，#3/#5/#8 等规格，支持开口、闭口、双头拉链定制。</p>
-          <div class="pcard-meta"><span>100 条起订</span><b>¥3.0 起</b></div>
+          <div class="pcard-meta"><span>100 条起订</span></div>
         </div>
-      </a>
+      </div>
     </div>
-    <p style="text-align:center;margin-top:26px;color:var(--muted);font-size:13px">* 页面价格为常见规格的示例起订价，实际按规格和数量报价。</p>
+    
   </div>
 </section>
 
@@ -357,171 +364,6 @@ page("index.html", "欧奢五金 — 箱包五金与不锈钢拉链源头工厂 
      "欧奢（东莞）五金有限公司：12 年箱包五金、不锈钢拉链源头工厂。铜五金、不锈钢五金、316 不锈钢拉链按图定制，100 件起订，混色混码，30 天交货。",
      index_body, "/",
      h1=None)
-
-# ═══════════════════════ 产品总览 ═══════════════════════
-prod_body = f'''
-<section class="section" style="padding-bottom:0">
-  <div class="wrap">
-    <img src="{_img('zip-pull.jpg')}" alt="金色拉链拉片特写 — 电镀光泽与链齿细节" style="width:100%;height:320px;object-fit:cover;border-radius:4px">
-  </div>
-</section>
-<section class="section">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="bar">全部产品</span>
-      <span class="en">PRODUCTS</span>
-      <p>均支持按图纸、样品定制；页面价格为常见规格示例价，实际按规格与数量报价。</p>
-    </div>
-
-    <h3 style="font-size:20px;margin-bottom:16px">① 铜箱包五金</h3>
-    <table class="tbl">
-      <tr><th>产品</th><th>常见规格</th><th>材质 / 工艺</th><th>示例价（100 件起）</th></tr>
-      <tr><td>D 环 / 三角环</td><td>10 / 15 / 20 / 25 / 32 mm</td><td>H62 黄铜，滚光、电镀镍、仿古铜</td><td><b>¥1.5–4.0 / 件</b></td></tr>
-      <tr><td>八字扣 / 日字扣</td><td>13 / 20 / 25 / 38 mm</td><td>H62/H65 黄铜，可定制刻字</td><td><b>¥2.0–5.5 / 件</b></td></tr>
-      <tr><td>插扣 / 针扣</td><td>20 / 25 / 32 / 38 mm</td><td>黄铜压铸或冲压，表面可电镀</td><td><b>¥2.5–8.0 / 件</b></td></tr>
-      <tr><td>铆钉 / 脚钉 / 撞钉</td><td>6–12 mm</td><td>铜质，双面铆合，滚光处理</td><td><b>¥0.3–1.0 / 件</b></td></tr>
-      <tr><td>吊饰环 / 拉片</td><td>按图纸</td><td>支持 logo 激光雕刻 / 压印</td><td><b>按图报价</b></td></tr>
-    </table>
-    <p style="margin:14px 0 40px"><a class="btn btn-accent" href="/products/brass-hardware/">查看铜五金详情</a></p>
-
-    <h3 style="font-size:20px;margin-bottom:16px">② 不锈钢箱包五金</h3>
-    <table class="tbl">
-      <tr><th>产品</th><th>常见规格</th><th>材质 / 工艺</th><th>示例价（100 件起）</th></tr>
-      <tr><td>O 环 / D 环 / 方环</td><td>10–38 mm</td><td>304 不锈钢，抛光或拉丝</td><td><b>¥1.2–4.5 / 件</b></td></tr>
-      <tr><td>勾扣 / 弹簧钩</td><td>20–38 mm</td><td>304 不锈钢，承力结构</td><td><b>¥2.5–7.0 / 件</b></td></tr>
-      <tr><td>调节扣 / 梯扣</td><td>20 / 25 / 32 mm</td><td>304 不锈钢，用于织带调节</td><td><b>¥1.8–5.0 / 件</b></td></tr>
-      <tr><td>316 系五金</td><td>按图纸</td><td>316 不锈钢，耐盐雾，户外/医卫级</td><td><b>按图报价</b></td></tr>
-    </table>
-    <p style="margin:14px 0 40px"><a class="btn btn-accent" href="/products/stainless-hardware/">查看不锈钢五金详情</a></p>
-
-    <h3 style="font-size:20px;margin-bottom:16px">③ 不锈钢拉链</h3>
-    <table class="tbl">
-      <tr><th>产品</th><th>常见规格</th><th>特点</th><th>示例价（100 条起）</th></tr>
-      <tr><td>316 不锈钢闭口拉链</td><td>#3 / #5</td><td>耐盐雾 48h+，顺滑不卡齿</td><td><b>¥3.0–6.0 / 条</b></td></tr>
-      <tr><td>316 不锈钢开口拉链</td><td>#5 / #8</td><td>配自动插销锁头，用于外套、箱包</td><td><b>¥5.0–9.0 / 条</b></td></tr>
-      <tr><td>双头拉链</td><td>#5 / #8 / #10</td><td>双拉头，行李箱、工具包常用</td><td><b>按图报价</b></td></tr>
-      <tr><td>定制拉片 / 刻字拉头</td><td>按图纸</td><td>拉头可激光刻 logo</td><td><b>按图报价</b></td></tr>
-    </table>
-    <p style="margin:14px 0"><a class="btn btn-accent" href="/products/zipper/">查看拉链详情</a></p>
-
-    <div class="gal-promo">
-      <div>
-        <b>除了箱包五金，我们还接不锈钢器具定制</b>
-        <p>餐具、厨具、盆桶、杯壶、烧烤工具，来图来样都能做。看看车间里做过的实物。</p>
-      </div>
-      <a class="btn btn-ghost" href="/samples/">看样品展示 →</a>
-    </div>
-  </div>
-</section>
-
-<section class="banner">
-  <div class="wrap">
-    <h2>没找到要的规格？</h2>
-    <p>上面只是常见规格。发图纸或样品，什么都能做——这就是源头工厂的意义。</p>
-    <a class="btn btn-accent" href="/contact/">发需求询价</a>
-  </div>
-</section>'''
-page("products/index.html", "产品中心 — 铜五金 | 不锈钢五金 | 不锈钢拉链 | 欧奢五金",
-     "欧奢五金产品中心：铜箱包五金、不锈钢箱包五金、316 不锈钢拉链三大产品线，100 件起订，支持按图定制，人民币报价。",
-     prod_body, "/products/",
-     h1="产品中心", sub="铜五金 · 不锈钢五金 · 不锈钢拉链，全部源头自产，按图定制。")
-
-# ═══════════════════════ 三个产品详情页 ═══════════════════════
-def prod_detail(fname, h1, sub, intro, specs_tbl, extra, price_note, subj):
-    body = f'''
-<div class="wrap">
-  <div class="crumb"><a href="/">首页</a> › <a href="/products/">产品</a> › {h1}</div>
-</div>
-<section class="section">
-  <div class="wrap">
-    <div class="grid grid-2" style="align-items:start">
-      <div>
-        <div class="pcard-media" style="height:300px;border-radius:4px">产 品 图 片 占 位<br><small style="font-size:11px">（放真实产品照片后删除此占位）</small></div>
-        <p style="font-size:13px;color:var(--muted);margin-top:10px">支持寄样对比：确认合作后样品费可抵货款。</p>
-      </div>
-      <div>
-        <h2 style="font-size:26px;margin-bottom:14px">{h1}</h2>
-        <p style="font-size:15px;color:var(--ink-2)">{intro}</p>
-        <ul style="margin:18px 0;font-size:14.5px;color:var(--ink-2);line-height:2.1">
-          <li>✔ 100 件（条）起订，混色混码下单</li>
-          <li>✔ 按图纸 / 样品定制，免费评估工艺</li>
-          <li>✔ 打样：库存样 2–3 天 / 定制样 15 天</li>
-          <li>✔ 大货 30 天内交货，30% 定金排产</li>
-          <li>✔ 支持第三方验货，出厂全检</li>
-          <li>✔ 包装可印您的 logo</li>
-        </ul>
-        <a class="btn btn-accent" href="#inquiry">立即询价</a>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="section section--soft">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="bar">常见规格</span>
-      <span class="en">SPEC & PRICE</span><p>{price_note}</p></div>
-    {specs_tbl}
-  </div>
-</section>
-{extra}
-<section class="section" id="inquiry">
-  <div class="wrap">
-    <div class="grid grid-2" style="align-items:start">
-      <div>
-        <div class="sec-head" style="text-align:left;margin-bottom:18px">
-      <span class="bar">把需求发给我们</span>
-      <span class="en">ENQUIRY</span><p>写清规格、数量和用途，当天回复报价与打样方案。</p></div>
-        <ul style="font-size:14.5px;color:var(--ink-2);line-height:2.2">
-          <li>📱 电话 / 微信：<b>180 0275 8559</b>（微信同号）</li>
-          <li>✉ 邮箱：<b>sales@osheaccessories.com</b></li>
-          <li>🏭 地址：东莞市长安镇厦边社区大板地一路10号8幢</li>
-        </ul>
-      </div>
-      <div class="form">{form(subj, "/" + fname.replace("index.html","").rstrip("/"))}</div>
-    </div>
-  </div>
-</section>'''
-    page(fname, f"{h1} — 按图定制 | 欧奢五金", sub, body, "/products/",
-         h1=h1, sub=sub)
-
-prod_detail("products/brass-hardware/index.html", "铜箱包五金",
-    "H62/H65 黄铜 D 环、八字扣、插扣、铆钉等箱包五金配件，100 件起订，按图定制，人民币报价。",
-    "铜五金是箱包上最经典的选择：密度高、手感沉、可做滚光、电镀镍、枪色、仿古铜等多种表面效果，长期使用不易发黑起皮。我们使用 H62/H65 黄铜板材与铜锭自制坯件，批量稳定，适合中高端女包、男士手袋、皮带辅料。",
-    '''<table class="tbl">
-      <tr><th>产品</th><th>常见规格</th><th>表面工艺</th><th>示例价（100 件起）</th></tr>
-      <tr><td>D 环 / 三角环</td><td>10 / 15 / 20 / 25 / 32 mm</td><td>滚光 / 镀镍 / 仿古铜</td><td><b>¥1.5–4.0 / 件</b></td></tr>
-      <tr><td>八字扣 / 日字扣</td><td>13 / 20 / 25 / 38 mm</td><td>滚光 / 电镀 / 可刻字</td><td><b>¥2.0–5.5 / 件</b></td></tr>
-      <tr><td>插扣 / 针扣</td><td>20 / 25 / 32 / 38 mm</td><td>压铸 / 冲压，可电镀</td><td><b>¥2.5–8.0 / 件</b></td></tr>
-      <tr><td>铆钉 / 脚钉 / 撞钉</td><td>6–12 mm</td><td>双面铆合，滚光</td><td><b>¥0.3–1.0 / 件</b></td></tr>
-    </table>''',
-    '''<section class="banner"><div class="wrap"><h2>颜色、尺寸、刻字都能定制</h2><p>把您的样品或图纸发过来，48 小时内给出工艺评估和报价。</p><a class="btn btn-accent" href="/products/brass-hardware/#inquiry">询价</a></div></section>''',
-    "价格为 H62 黄铜、常规工艺的示例起订价；电镀、刻字、异形按实际工艺另计。", "内贸站询价 — 铜箱包五金")
-
-prod_detail("products/stainless-hardware/index.html", "不锈钢箱包五金",
-    "304/316 不锈钢箱包五金：环扣、勾扣、调节扣，强度高不生锈，100 件起订，按图定制。",
-    "不锈钢五金的强项是强度和耐候：受力部位不易变形，潮湿环境不生锈，特别适合户外包、工具包、军迷包、医卫与母婴类箱包。常规用 304，海边、医疗、化工场景建议 316。表面可做抛光镜面或拉丝哑光。",
-    '''<table class="tbl">
-      <tr><th>产品</th><th>常见规格</th><th>材质 / 表面</th><th>示例价（100 件起）</th></tr>
-      <tr><td>O 环 / D 环 / 方环</td><td>10–38 mm</td><td>304，抛光 / 拉丝</td><td><b>¥1.2–4.5 / 件</b></td></tr>
-      <tr><td>勾扣 / 弹簧钩</td><td>20–38 mm</td><td>304，承力结构</td><td><b>¥2.5–7.0 / 件</b></td></tr>
-      <tr><td>调节扣 / 梯扣</td><td>20 / 25 / 32 mm</td><td>304，织带调节</td><td><b>¥1.8–5.0 / 件</b></td></tr>
-      <tr><td>316 系五金</td><td>按图纸</td><td>316，耐盐雾户外级</td><td><b>按图报价</b></td></tr>
-    </table>''',
-    '''<section class="banner"><div class="wrap"><h2>分不清 304 和 316？</h2><p>告诉我们箱包的使用场景（户外、海边、医疗……），我们推荐合适的材质，不让你多花一分冤枉钱。</p><a class="btn btn-accent" href="/products/stainless-hardware/#inquiry">咨询选材</a></div></section>''',
-    "价格为 304 材质、常规工艺的示例起订价；316 材质与异形件按图报价。", "内贸站询价 — 不锈钢箱包五金")
-
-prod_detail("products/zipper/index.html", "不锈钢拉链",
-    "316 不锈钢拉链：耐盐雾、耐腐蚀、顺滑不卡齿，#3/#5/#8 规格，开口闭口双头可选，100 条起订。",
-    "普通金属拉链遇汗、遇海水容易锈死，拉不动。我们的拉链链牙用 316 不锈钢——比常见的 201、304 更耐腐蚀，盐雾测试 48 小时以上不生锈、不卡齿。适合户外装备、泳装周边、工具包、需要水洗的箱包产品。拉头可配自动锁、插销锁，也可激光刻您的 logo。",
-    '''<table class="tbl">
-      <tr><th>产品</th><th>规格</th><th>结构</th><th>示例价（100 条起）</th></tr>
-      <tr><td>316 闭口拉链</td><td>#3 / #5</td><td>闭口尾，包袋口袋常用</td><td><b>¥3.0–6.0 / 条</b></td></tr>
-      <tr><td>316 开口拉链</td><td>#5 / #8</td><td>插销锁头，外套 / 箱体</td><td><b>¥5.0–9.0 / 条</b></td></tr>
-      <tr><td>316 双头拉链</td><td>#5 / #8 / #10</td><td>双拉头，行李箱 / 工具包</td><td><b>按图报价</b></td></tr>
-      <tr><td>定制拉头 / 拉片</td><td>按图纸</td><td>激光刻 logo</td><td><b>按图报价</b></td></tr>
-    </table>''',
-    '''<section class="banner"><div class="wrap"><h2>先寄一条样品试试手感</h2><p>确认合作后样品费抵货款。长度、颜色、拉头类型都能按您的需求定制。</p><a class="btn btn-accent" href="/products/zipper/#inquiry">申请样品</a></div></section>''',
-    "价格为 316 不锈钢、常规长度的示例起订价；长度按厘米计价，特殊规格按图报价。", "内贸站询价 — 不锈钢拉链")
 
 # ═══════════════════════ 样品展示 ═══════════════════════
 # 产品以用户命名为准；images/samples/<slug>/ 内：main.jpg 白底首图，main-N.jpg 其余白底图，detail-N.jpg 细节实拍
