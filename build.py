@@ -111,7 +111,7 @@ def page(fname, title, desc, body, cur, h1=None, sub=None, crumb=None, breadcrum
   </div>
   <div class="footer-bottom"><div class="fb-in">
     <span>© {YEAR} 欧奢（东莞）五金有限公司 版权所有</span>
-    <span><!-- ICP 备案通过后，把备案号放这里，例如：-->粤ICP备XXXXXXXX号（备案通过后替换）</span>
+    <!-- ICP 备案通过后，在此加入备案号，例如：<span>粤ICP备XXXXXXXX号</span> -->
   </div></div>
 </footer>
 
@@ -202,9 +202,9 @@ FORM = f'''<div class="form-ok" id="formOk" hidden><span><b>询价已提交，�
 
 
 # 品牌 "Ō" 图形：圆环 + 人字帽（参照用户提供的图形，无背景方块）
-BRAND_SVG_DARK = ('<svg viewBox="0 0 100 82" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
-  '<path d="M6 34 L50 9 L94 34 L94 45 L50 21 L6 45 Z" fill="#1c1c1e"/>'
-  '<circle cx="50" cy="60" r="21" fill="none" stroke="#1c1c1e" stroke-width="13"/></svg>')
+BRAND_SVG_DARK = ('<svg viewBox="0 0 100 98" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
+  '<path d="M0 31 L50 0 L100 31 L100 44 L50 13 L0 44 Z" fill="#1c1c1e"/>'
+  '<circle cx="50" cy="65" r="23.5" fill="none" stroke="#1c1c1e" stroke-width="13"/></svg>')
 BRAND_SVG_LIGHT = BRAND_SVG_DARK.replace('#1c1c1e', '#ffffff')
 
 def form(subj, redir):
@@ -226,9 +226,6 @@ index_body = f'''
   <div class="hero-dots"><span class="on"></span><span></span><span></span></div>
 </section>
 
-<section class="values">
-  <img src="/images/oshe-brand.jpg" alt="欧奢拉链品牌理念：用心做好每一条拉链 — 品质、诚信、专注、创新">
-</section>
 
 <div class="keywords"><div class="wrap"><b>热门关键词：</b>铜箱包五金、不锈钢五金、不锈钢拉链、压铸锌合金、D 环 / 三角环 / 插扣、按图定制</div></div>
 
@@ -309,11 +306,11 @@ index_body = f'''
       <span class="en">PROCESS</span>
     </div>
     <div class="steps">
-      <div class="step"><span class="no">1</span><b>询价 / 寄样</b><p>发图纸、样品或需求清单</p></div>
-      <div class="step"><span class="no">2</span><b>3D 打样确认</b><p>3–7 天出 1:1 白样，确认后锁价</p></div>
-      <div class="step"><span class="no">3</span><b>支付定金</b><p>30% 定金，排产锁定交期</p></div>
-      <div class="step"><span class="no">4</span><b>生产质检</b><p>30 天内完成，全检出货</p></div>
-      <div class="step"><span class="no">5</span><b>发货结算</b><p>付清余款，物流全国直达</p></div>
+      <div class="step"><b>询价 / 寄样</b><p>发图纸、样品或需求清单</p></div>
+      <div class="step"><b>3D 打样确认</b><p>3–7 天出 1:1 白样，确认后锁价</p></div>
+      <div class="step"><b>支付定金</b><p>30% 定金，排产锁定交期</p></div>
+      <div class="step"><b>生产质检</b><p>30 天内完成，全检出货</p></div>
+      <div class="step"><b>发货结算</b><p>付清余款，物流全国直达</p></div>
     </div>
   </div>
 </section>
@@ -560,11 +557,11 @@ samples_body = f'''
       <span class="en">PROCESS</span>
     </div>
     <div class="steps">
-      <div class="step"><span class="no">1</span><b>发图 / 寄样</b><p>照片、手绘图、CAD 都行</p></div>
-      <div class="step"><span class="no">2</span><b>工艺评估</b><p>48 小时给方案与报价</p></div>
-      <div class="step"><span class="no">3</span><b>3D 打样确认</b><p>3–7 天出 1:1 白样，确认后开模</p></div>
-      <div class="step"><span class="no">4</span><b>批量生产</b><p>30% 定金排产</p></div>
-      <div class="step"><span class="no">5</span><b>验货发货</b><p>全检后物流直达</p></div>
+      <div class="step"><b>发图 / 寄样</b><p>照片、手绘图、CAD 都行</p></div>
+      <div class="step"><b>工艺评估</b><p>48 小时给方案与报价</p></div>
+      <div class="step"><b>3D 打样确认</b><p>3–7 天出 1:1 白样，确认后开模</p></div>
+      <div class="step"><b>批量生产</b><p>30% 定金排产</p></div>
+      <div class="step"><b>验货发货</b><p>全检后物流直达</p></div>
     </div>
   </div>
 </section>
@@ -634,11 +631,11 @@ svc_body = f'''
       <span class="bar">订单是怎么跑起来的</span>
       <span class="en">PROCESS</span></div>
     <div class="steps">
-      <div class="step"><span class="no">1</span><b>询价</b><p>当天回复报价</p></div>
-      <div class="step"><span class="no">2</span><b>3D 打样</b><p>3–7 天出 1:1 白样</p></div>
-      <div class="step"><span class="no">3</span><b>定金</b><p>30% 排产</p></div>
-      <div class="step"><span class="no">4</span><b>生产</b><p>30 天内交货</p></div>
-      <div class="step"><span class="no">5</span><b>发货</b><p>全国物流直达</p></div>
+      <div class="step"><b>询价</b><p>当天回复报价</p></div>
+      <div class="step"><b>3D 打样</b><p>3–7 天出 1:1 白样</p></div>
+      <div class="step"><b>定金</b><p>30% 排产</p></div>
+      <div class="step"><b>生产</b><p>30 天内交货</p></div>
+      <div class="step"><b>发货</b><p>全国物流直达</p></div>
     </div>
   </div>
 </section>
