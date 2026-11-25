@@ -67,7 +67,7 @@ def page(fname, title, desc, body, cur, h1=None, sub=None, crumb=None, breadcrum
 </head>
 <body>
 <div class="topbar"><div class="wrap">
-  <a class="brand" href="/"><span class="brand-mark">{BRAND_SVG_DARK}</span>欧奢五金·拉链</a>
+  <a class="brand" href="/"><span class="brand-mark">{BRAND_MARK_DARK}</span>欧奢五金·拉链</a>
   <div class="lang"><span class="cur">中文</span>&nbsp;/&nbsp;<a href="https://osheaccessories.com/" target="_blank" rel="noopener">English</a></div>
 </div></div>
 <header class="nav">
@@ -84,7 +84,7 @@ def page(fname, title, desc, body, cur, h1=None, sub=None, crumb=None, breadcrum
 <footer class="footer">
   <div class="footer-in">
     <div>
-      <div class="brand"><span class="brand-mark">{BRAND_SVG_LIGHT}</span>欧奢五金·拉链</div>
+      <div class="brand"><span class="brand-mark">{BRAND_MARK_LIGHT}</span>欧奢五金·拉链</div>
       <p>欧奢（东莞）五金有限公司<br>箱包五金 · 不锈钢拉链源头工厂</p>
       <p>广东省东莞市长安镇厦边社区<br>大板地一路10号8幢</p>
     </div>
@@ -201,11 +201,10 @@ FORM = f'''<div class="form-ok" id="formOk" hidden><span><b>询价已提交，�
 </form>'''
 
 
-# 品牌 "Ō" 图形：圆环 + 人字帽（参照用户提供的图形，无背景方块）
-BRAND_SVG_DARK = ('<svg viewBox="0 0 100 98" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
-  '<path d="M0 31 L50 0 L100 31 L100 44 L50 13 L0 44 Z" fill="#1c1c1e"/>'
-  '<circle cx="50" cy="65" r="23.5" fill="none" stroke="#1c1c1e" stroke-width="13"/></svg>')
-BRAND_SVG_LIGHT = BRAND_SVG_DARK.replace('#1c1c1e', '#ffffff')
+# 品牌图形：从用户提供的图标抠图生成（images/brand-mark*.png，黑/白两版）
+BRAND_MARK_DARK = f'<img src="{_img("brand-mark.png")}" alt="">'
+BRAND_MARK_LIGHT = f'<img src="{_img("brand-mark-white.png")}" alt="">'
+
 
 def form(subj, redir):
     return FORM.replace("{SUBJ}", subj).replace("{REDIR}", SITE + redir)
